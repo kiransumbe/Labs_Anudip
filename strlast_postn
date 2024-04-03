@@ -1,0 +1,23 @@
+public class Main {
+    public static void main(String[] args) {
+        String input = "8446215603";
+        String result = maskString(input);
+        System.out.println(result);
+    }
+
+    public static String maskString(String input) {
+        if (input == null || input.length() < 4) {
+            return input;
+        }
+
+        int length = input.length();
+        StringBuilder maskedString = new StringBuilder();
+
+        for (int i = 0; i < length - 4; i++) {
+            maskedString.append('X');
+        }
+
+        maskedString.append(input.substring(length - 4));
+        return maskedString.toString();
+    }
+}
